@@ -1,6 +1,6 @@
 [submodule "uSockets"]
 	path = uSockets
-	url = https://github.com/uNetworking/uSockets.git
+	url = https://github.com/kochol/fips-uSockets.git
 [submodule "fuzzing/libEpollFuzzer"]
 	path = fuzzing/libEpollFuzzer
 	url = https://github.com/uNetworking/libEpollFuzzer
@@ -12,4 +12,4 @@
 	url = https://github.com/uNetworking/h1spec
 [submodule "libdeflate"]
 	path = libdeflate
-	url = https://github.com/ebiggers/libdeflate
+	url = https://github.com/kochol/fips-libdeflate.git
