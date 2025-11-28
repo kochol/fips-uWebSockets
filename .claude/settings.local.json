@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\Users\\Cyrus\\Documents\\GitHub\")",
+      "Bash(dir \"c:\\Users\\Cyrus\\Documents\\GitHub\\fips-mustache\")",
+      "Bash(dir \"c:\\Users\\Cyrus\\Documents\\GitHub\\fips-uWebSockets\\src\")",
+      "Bash(dir /s \"c:\\Users\\Cyrus\\Documents\\GitHub\\fips-mustache\\src\")",
+      "Bash(dir:*)",
+      "Bash(cat:*)",
+      "Bash(git submodule:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

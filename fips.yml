@@ -1,0 +1,12 @@
+---
+project: fips-uWebSockets
+imports:
+    fips-uSockets:
+        git: https://github.com/kochol/fips-uSockets.git
+    fips-libdeflate:
+        git: https://github.com/kochol/fips-libdeflate.git
+exports:
+    header-dirs:
+        - src
+    modules:
+        uWebSockets: .
