@@ -59,16 +59,20 @@ fips_begin_lib(uWebSockets)
         WebSocketProtocol.h
     )
 
+    # Dependencies
+    fips_deps(uSockets)
+
+    if (UWEBSOCKETS_USE_LIBDEFLATE)
+        fips_deps(libdeflate)
+    endif()
+
 fips_end_lib()
 
 # Include directories
 target_include_directories(uWebSockets PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-# Dependencies
-fips_deps(uSockets)
-
+# Compile definitions for libdeflate
 if (UWEBSOCKETS_USE_LIBDEFLATE)
-    fips_deps(libdeflate)
     target_compile_definitions(uWebSockets PUBLIC UWS_USE_LIBDEFLATE)
 else()
     find_package(ZLIB REQUIRED)
