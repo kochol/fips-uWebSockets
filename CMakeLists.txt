@@ -16,8 +16,11 @@ option(UWEBSOCKETS_USE_LIBDEFLATE "Use libdeflate instead of zlib for compressio
 
 fips_begin_lib(uWebSockets)
 
-    # uWebSockets is header-only, but we declare the headers for IDE support
     fips_dir(src)
+    # Empty source file to make this a linkable library
+    fips_files(uWebSockets.cpp)
+
+    # Header files for IDE support
     fips_files(
         App.h
         AsyncSocket.h
@@ -59,10 +62,11 @@ fips_begin_lib(uWebSockets)
         WebSocketProtocol.h
     )
 
-    # Dependencies
-    fips_deps(uSockets)
+    # Dependencies - always need uSockets and zlib for compression
+    fips_deps(uSockets zlib)
 
     if (UWEBSOCKETS_USE_LIBDEFLATE)
+        # libdeflate is used as an optional fast path for decompression
         fips_deps(libdeflate)
     endif()
 
@@ -74,9 +78,6 @@ target_include_directories(uWebSockets PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 # Compile definitions for libdeflate
 if (UWEBSOCKETS_USE_LIBDEFLATE)
     target_compile_definitions(uWebSockets PUBLIC UWS_USE_LIBDEFLATE)
-else()
-    find_package(ZLIB REQUIRED)
-    target_link_libraries(uWebSockets ZLIB::ZLIB)
 endif()
 
 # C++20 standard
